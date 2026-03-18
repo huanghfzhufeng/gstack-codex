@@ -1,0 +1,132 @@
+:root {
+  --background: #f6f0e4;
+  --card: rgba(255, 252, 246, 0.95);
+  --border: rgba(34, 30, 24, 0.12);
+  --text: #201b17;
+  --muted: #62564c;
+  --accent: #bc5d30;
+  --accent-soft: #f3ddd0;
+  --info: #496dba;
+  --success: #1f6f4a;
+  font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(188, 93, 48, 0.18), transparent 28rem),
+    linear-gradient(180deg, #fbf7ef, var(--background));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(56rem, calc(100vw - 2rem));
+  margin: 2rem auto;
+}
+
+.card,
+.status-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  box-shadow: 0 1rem 2.5rem rgba(32, 27, 23, 0.07);
+}
+
+.card {
+  padding: 2.5rem;
+}
+
+.status-panel {
+  margin-top: 1.5rem;
+  padding: 1.4rem 1.8rem;
+}
+
+.status-panel__header,
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.actions {
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 14ch;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  line-height: 0.96;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+.copy {
+  margin-top: 1rem;
+  max-width: 40rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.primary-action,
+.secondary-action {
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-action {
+  background: var(--accent);
+  color: #fff8f4;
+}
+
+.secondary-action {
+  border-color: rgba(188, 93, 48, 0.2);
+  background: var(--accent-soft);
+  color: #6d2d12;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.badge--info {
+  background: rgba(73, 109, 186, 0.18);
+  color: var(--info);
+}
+
+.badge--success {
+  background: rgba(31, 111, 74, 0.16);
+  color: var(--success);
+}

@@ -17,6 +17,7 @@ It ships:
 - Codex-native skill metadata with cleaner UI names like `gstack QA` and `gstack Plan CEO Review`
 - a runtime compatibility patch for `browse`, fixing the detached background server behavior in Codex
 - smoke tests that verify sync, skill generation, and `browse status/goto/text`
+- a closed-loop QA integration test that proves the `/qa` flow can detect a real UI bug, commit the fix, add a regression test, and re-verify the result
 
 ## What Changed From Upstream
 
@@ -52,6 +53,7 @@ This port keeps upstream workflow content as intact as possible, but adapts the 
 - Git
 - [Bun](https://bun.sh/) v1.0+
 - Python 3.10+
+- Node.js 20+ for the closed-loop `/qa` fixture test
 
 ## Install
 
@@ -114,6 +116,13 @@ Run the test suite:
 python3 -m unittest discover -s tests -v
 ```
 
+The suite now covers:
+
+- sync generation and skill metadata
+- `browse` runtime smoke tests
+- a closed-loop `/qa` validation on a real JS fixture app:
+  detect a bug in the browser, commit a source fix, add a regression test, and verify the repaired UI
+
 Run a one-off sync into a temporary Codex home:
 
 ```bash
@@ -126,6 +135,7 @@ python3 scripts/sync_gstack_codex.py --source vendor/gstack-upstream --codex-hom
 - `vendor/gstack-upstream`: vendored upstream snapshot used for deterministic regeneration
 - `tests/test_port.py`: end-to-end validation for sync and `browse`
 - `tests/fixtures/site`: local smoke-test website
+- `tests/fixtures/qa_app_buggy`: intentionally buggy fixture app for closed-loop `/qa` validation
 
 ## Attribution
 

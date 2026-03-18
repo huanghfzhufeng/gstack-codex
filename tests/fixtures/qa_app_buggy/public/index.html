@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QA Closed Loop Fixture</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+    <script type="module" src="/public/app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="card">
+        <p class="eyebrow">Release control</p>
+        <h1>Preview the launch status states.</h1>
+        <p class="copy">This fixture intentionally ships a badge-state bug so the QA workflow can find and fix it.</p>
+        <div class="actions">
+          <button id="preview-success" class="primary-action" type="button">Preview healthy launch</button>
+          <button id="preview-alert" class="secondary-action" type="button">Preview risky launch</button>
+        </div>
+      </section>
+
+      <section class="status-panel" aria-labelledby="status-heading">
+        <div class="status-panel__header">
+          <h2 id="status-heading">Launch Status</h2>
+          <span id="badge-preview" class="badge badge--info">Info</span>
+        </div>
+        <p class="copy">The risky launch button should switch both the badge copy and its visual state.</p>
+      </section>
+    </main>
+  </body>
+</html>

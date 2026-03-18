@@ -7,6 +7,7 @@ Requirements:
 - Python 3.10+
 - Bun 1.0+
 - Git
+- Node.js 20+ (required for the `/qa` closed-loop fixture test)
 
 Install the port into your local Codex home:
 
@@ -29,6 +30,7 @@ The suite validates:
 - `browse status`
 - `browse goto`
 - `browse text`
+- `/qa` closed-loop behavior on a real fixture app, including fix and regression-test commits
 
 ## Updating The Upstream Snapshot
 
