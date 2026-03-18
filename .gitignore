@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.gstack/
+.tmp/
+.pytest_cache/
+.venv/
+dist/
+
+vendor/gstack-upstream/node_modules/
+vendor/gstack-upstream/browse/dist/

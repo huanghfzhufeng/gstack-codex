@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Port Smoke Test</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5efe2;
+        --panel: #fff9ef;
+        --ink: #1f1b16;
+        --accent: #b4572a;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top, rgba(180, 87, 42, 0.18), transparent 32rem),
+          linear-gradient(180deg, var(--bg), #efe5d0);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 48rem;
+        margin: 4rem auto;
+        padding: 2.5rem;
+        background: var(--panel);
+        border: 1px solid rgba(31, 27, 22, 0.12);
+        box-shadow: 0 1.5rem 4rem rgba(31, 27, 22, 0.08);
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 0.95;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      strong {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Codex Port Smoke Test</h1>
+      <p>This page exists so <strong>gstack browse</strong> can prove it started, loaded a page, and read text content in an isolated test run.</p>
+    </main>
+  </body>
+</html>
