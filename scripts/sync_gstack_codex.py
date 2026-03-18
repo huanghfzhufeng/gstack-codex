@@ -391,6 +391,15 @@ def patch_runtime_cli(cli_path: Path) -> None:
     cli_path.write_text(cli_text)
 
 
+def patch_runtime_slug(slug_path: Path) -> None:
+    slug_text = slug_path.read_text()
+    original = "SLUG=$(git remote get-url origin 2>/dev/null | sed 's|.*[:/]\\([^/]*/[^/]*\\)\\.git$|\\1|;s|.*[:/]\\([^/]*/[^/]*\\)$|\\1|' | tr '/' '-')\n"
+    patched = "SLUG=$(git remote get-url origin 2>/dev/null | sed 's|.*[:/]\\([^/]*/[^/]*\\)\\.git$|\\1|;s|.*[:/]\\([^/]*/[^/]*\\)$|\\1|' | tr '/ ' '--' | tr -s '-')\n"
+    if original in slug_text:
+        slug_text = slug_text.replace(original, patched, 1)
+        slug_path.write_text(slug_text)
+
+
 def install_tooling(context: SyncContext) -> None:
     build_dir = context.port_root / "tools-build"
     remove_path(build_dir)
@@ -409,6 +418,7 @@ def copy_runtime(context: SyncContext, source_root: Path, *, skip_setup: bool) -
         copy_function=shutil.copy2,
     )
     patch_runtime_cli(runtime_build / "browse" / "src" / "cli.ts")
+    patch_runtime_slug(runtime_build / "bin" / "gstack-slug")
     replace_dir_atomic(runtime_build, context.runtime_root)
 
     if skip_setup:
@@ -517,6 +527,10 @@ def adapt_common_body(body: str) -> str:
     ]
     for old, new in replacements:
         body = body.replace(old, new)
+    body = body.replace(
+        "~/.codex/skills/gstack-~/.codex/skills/gstack-review/",
+        "~/.codex/skills/gstack-review/",
+    )
     return body
 
 
