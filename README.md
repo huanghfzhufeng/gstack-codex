@@ -1,5 +1,8 @@
 # gstack-codex
 
+<p align="center"><img src="./docs/images/sync-architecture.svg" alt="gstack-codex Sync Architecture" width="100%" /></p>
+
+
 Codex-native port of Garry Tan's gstack, with a sync pipeline and runtime compatibility fixes for Codex.
 
 > Unofficial port. This repository is not maintained by Garry Tan or the upstream `gstack` project.
